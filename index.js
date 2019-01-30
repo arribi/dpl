@@ -1,7 +1,7 @@
 const express = require('express'), http = require('http'),
   morgan = require("morgan");
 
-const hostname = '192.168.42.14';
+const hostname = 'localhost';
 const port = 3000;
 
 const app = express();
