@@ -2,7 +2,10 @@ const express = require('express'), http = require('http'),
   morgan = require("morgan");
 
 const hostname = 'localhost';
-const port = 3000;
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
 
 const app = express();
 app.use(morgan("dev"));
@@ -18,6 +21,6 @@ app.use((req, res, next) => {
 
 const server = http.createServer(app);
 
-server.listen(port, hostname, () => {
+server.listen(port, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
